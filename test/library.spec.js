@@ -1,32 +1,21 @@
 /* global describe, it, before */
 
-import chai from 'chai';
-import {Cat, Dog} from '../lib/library.js';
-
 chai.expect();
-
 const expect = chai.expect;
 
-let lib;
+chai.should();
+const should = chai.should;
 
-describe('Given an instance of my Cat library', () => {
-  before(() => {
-    lib = new Cat();
+describe(' - - - Check if library exist or not', () => {  
+  it('should return library exist', () => {
+    expect(RendTable).to.exist;
   });
-  describe('when I need the name', () => {
-    it('should return the name', () => {
-      expect(lib.name).to.be.equal('Cat');
-    });
-  });
-});
 
-describe('Given an instance of my Dog library', () => {
-  before(() => {
-    lib = new Dog();
+  it('should return library version', () => {
+    (typeof RendTable.version()).should.be.a('string');
   });
-  describe('when I need the name', () => {
-    it('should return the name', () => {
-      expect(lib.name).to.be.equal('Dog');
-    });
+
+  it('should have foo', () => {
+    document.getElementById('table').should.have.attr('foo')
   });
 });
