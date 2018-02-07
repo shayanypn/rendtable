@@ -11,17 +11,35 @@
 		<div id="table"></div>
 	</div>
 </div>
-<script type="text/javascript" src="../dist/rendtable.js"></script>
+<script type="text/javascript" src="../dist/rendtable.min.js"></script>
 <script type="text/javascript">
 
-var t2 = RendTable.render('table', {
+var customTable = RendTable.render('table', {
 	table: {
 		idName: 	'table-one',
 		className: 	'table',
 		loading: 	'<p class="text-center table-empty-loading" > Loading, please wait ... </p>',
-		empty:   	'<p class="text-center table-empty-text" > Click "Add Gateway" to setup new gateway. </p>'
+		empty:   	'<p class="text-center table-empty-text" > Click "Add Gateway" to setup new gateway. </p>',
+		builder: [
+				{
+					tag: 'div',
+					className: 'well',
+					elements:[
+						{
+							tag: 'div',
+							className: 'alert alert-success',
+							text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius possimus sed accusantium ad dolor fugit facilis unde, labore odit totam natus beatae error sapiente illum, ducimus aut quasi ea nisi.'
+						},
+						{
+							target: 'table'
+						},
+						{
+							target: 'paging'
+						}
+					]
+				}
+		]
 	},
-
 	data: [
 		{"first_name": "Dulciana","last_name": "Aggio","email": "daggio0@geocities.jp", "gender": "Female", "price": 100000, "date": 1516436751  },
 		{"first_name": "Gardy","last_name": "Gerald","email": "ggerald1@shop-pro.jp", "gender": "Male", "price": 200000, "date": 1516436751 },
@@ -103,72 +121,45 @@ var t2 = RendTable.render('table', {
 				{
 					tag: 'button',
 					className: 'btn btn-primary btn-xs',
+					action: 'onCallClick',
 					elements:[
 						{
 							tag: 'i',
 							className: 'lnr lnr-plus-circle',
-							action: 'onSensor',
+							text: 'edit'
+						},
+					]
+				},
+				{
+					tag: 'button',
+					className: 'btn btn-primary btn-xs',
+					action: {
+						trigger: 'mouseover',
+						call: 'onClick'
+					},
+					elements:[
+						{
+							tag: 'i',
+							className: 'lnr lnr-plus-circle',
 							text: 'edit'
 						}
 					]
 				}
 			]
 		}
-	],
-	// columns: [
-	// 	'name: Name ',
-	// 	'id:Access Code',
-	// 	{
-	// 		key: 	'createdAt',
-	// 		label: 	'Added Date',
-	// 		display: {
-	// 			type: 'datetime',
-	// 			format: 'YYY'
-	// 		}
-	// 	},
-	// 	{
-	// 		key: 	'id',
-	// 		label: 	' ',
-	// 		className: 'td-action text-center',
-	// 		elements: [
-	// 			{
-	// 				tagName: 'div',
-	// 				className: 'btn-group',
-	// 				text: '',
-	// 				elements: [
-	// 					{
-	// 						tagName: 'button',
-	// 						className: 'btn btn-primary btn-xs',
-	// 						action: 'onSensor',
-	// 						text: '<i class="lnr lnr-plus-circle"></i>'
-	// 					},
-	// 					{
-	// 						tagName: 'button',
-	// 						className: 'btn btn-primary btn-xs',
-	// 						text: '<i class="lnr lnr-eye"></i>',
-	// 						action: 'onView'
-	// 					},
-	// 					{
-	// 						tagName: 'button',
-	// 						className: 'btn btn-primary btn-xs',
-	// 						text: '<i class="lnr lnr-sync"></i>',
-	// 						action: 'onReboot'
-	// 					},
-	// 					{
-	// 						tagName: 'button',
-	// 						className: 'btn btn-primary btn-xs',
-	// 						text: '<i class="lnr lnr-trash"></i>',
-	// 						action: 'onDelete'
-	// 					}
-	// 				]
-	// 			}
-	// 		]
-	// 	}
-	// ]
+	]
+});
+
+customTable.action('onCallClick', function(){
+	console.log('shayan is the best');
+});
+
+customTable.action('onClick', function(){
+	console.log('shayan is the best');
 });
 
 
-console.log(t2);
+
 </script>
 </body>
 </html>
