@@ -7,8 +7,19 @@
 </head>
 <body>
 <div class="container">
-	<div class="col-md-12">
-		<div id="table"></div>
+	<div class="row">
+		<div class="col-md-4">
+			<button id="refresh" class="btn btn-default">Refresh</button>
+		</div>
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<input type="text" name="search-query" />
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div id="table"></div>
+		</div>
 	</div>
 </div>
 <script type="text/javascript" src="../dist/rendtable.js"></script>
@@ -70,18 +81,24 @@ var customTable = RendTable.render('table', {
 		{"first_name": "Tracy","last_name": "Hache","email": "thache4@unblog.fr", "gender": "Female", "price": 500000, "date": 1516436751 },
 		{"first_name": "Dulciana","last_name": "Aggio","email": "daggio0@geocities.jp", "gender": "Female", "price": 100000, "date": 1516436751  }
 	],
-	data : './data_one.json',
-	mapResponse: function(response){
-		return response.data;
-	},
-	mapData: function(item){
-		return item;
-	},
+	// data : './data_one.json',
+	// mapResponse: function(response){
+	// 	return response.data;
+	// },
+	// mapData: function(item){
+	// 	return item;
+	// },
 
 	limit: 10,
 	paging:{
 		className: 'pagination'
 	},
+
+
+	searchFields: [
+		'first_name',
+		'last_name'
+	],
 
 	columns: [
 		'COUNTER:#',
@@ -149,6 +166,23 @@ var customTable = RendTable.render('table', {
 		}
 	]
 });
+
+
+document.getElementById('refresh')
+.addEventListener('click',function(){
+	customTable.refresh();
+})
+
+
+var searchInput = document.getElementsByName('search-query')[0];
+searchInput.addEventListener('keyup',function(e){
+	customTable.search( e.target.value );
+})
+
+// name="search-query"
+// customTable.method('onCallClick', function(){
+// 	console.log('shayan is the best');
+// });
 
 customTable.action('onCallClick', function(){
 	console.log('shayan is the best');
