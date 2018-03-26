@@ -21,8 +21,8 @@
 				<div class="card-header">
 					<ul class="nav nav-pills card-header-pills">
 						<li class="nav-item"><a class="nav-link" id="refresh" href="#">REFRESH</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Disabled</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">Toggle FirstName</a></li>
+						<li class="nav-item"><a class="nav-link" href="#">Toggle LastName</a></li>
 						<li class="nav-item"><input type="text" name="search-query" class="form-control" placeholder="Search a query" /></li>
 					</ul>
 				</div>
@@ -41,26 +41,42 @@ var customTable = RendTable.render('table', {
 		idName: 	'table-one',
 		className: 	'table',
 		loading: 	'<p class="text-center table-empty-loading" > Loading, please wait ... </p>',
-		empty:   	'<p class="text-center table-empty-text" > Click "Add Gateway" to setup new gateway. </p>',
-		builder: [
+		empty:   	'<p class="text-center table-empty-text" > nothing found. </p>',
+		thead:{
+			className: 'thead-class'
+		},
+		tbody:{
+			className: 'thead-classname',
+			tr: {
+				className: 'tr-classname',
+				td:{
+					className: 'td-classname',
+				},
+				th:{
+					className: 'th-classname',
+				}
+			}
+		},
+		builder: {
+			tag: 'div',
+			className: 'well',
+			elements:[
 				{
 					tag: 'div',
-					className: 'well',
-					elements:[
-						{
-							tag: 'div',
-							className: 'alert alert-success',
-							text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius possimus sed accusantium ad dolor fugit facilis unde, labore odit totam natus beatae error sapiente illum, ducimus aut quasi ea nisi.'
-						},
-						{
-							target: 'table'
-						},
-						{
-							target: 'paging'
-						}
-					]
+					className: 'alert alert-success',
+					text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius possimus sed accusantium ad dolor fugit facilis unde, labore odit totam natus beatae error sapiente illum, ducimus aut quasi ea nisi.'
+				},
+				{
+					target: 'table'
+				},
+				{
+					target: 'paging'
+				},
+				{
+					target: 'limit'
 				}
-		]
+			]
+		}
 	},
 	data: [
 		{"id":1,"first_name":"Rahal","last_name":"Hastewell","email":"rhastewell0@phpbb.com","gender":"Female","ip_address":"159.251.117.77","country":"Japan","city":"Fukushima-shi","phone":"781-959-5474","color":"Puce","birthday":"2017-08-04"},
@@ -180,11 +196,14 @@ var customTable = RendTable.render('table', {
 								trigger: 'mouseover',
 								call: 'onClick'
 							},
+							show: ( data ) => {
+								return ( data.gender === 'Female' ) ? true : false;
+							},
 							elements:[
 								{
 									tag: 'i',
 									className: 'lnr lnr-plus-circle',
-									text: 'edit'
+									text: 'Show if Female'
 								}
 							]
 						}
@@ -205,19 +224,14 @@ document.getElementById('refresh')
 var searchInput = document.getElementsByName('search-query')[0];
 searchInput.addEventListener('keyup',function(e){
 	customTable.search( e.target.value );
-})
-
-// name="search-query"
-// customTable.method('onCallClick', function(){
-// 	console.log('shayan is the best');
-// });
+});
 
 customTable.action('onCallClick', function(){
 	alert('onCallClick');
 });
 
 customTable.action('onClick', function(){
-	alert('onClick');
+	alert('mouseover');
 });
 
 
