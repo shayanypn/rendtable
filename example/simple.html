@@ -32,210 +32,257 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card text-center">
+				<div class="card-header">
+				</div>
+				<div class="card-body">
+					<div id="table-two"></div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 <script type="text/javascript" src="../dist/rendtable.min.js"></script>
 <script type="text/javascript">
 
-var customTable = RendTable.render('table', {
-	table: {
-		idName: 	'table-one',
-		className: 	'table',
-		loading: 	'<p class="text-center table-empty-loading" > Loading, please wait ... </p>',
-		empty:   	'<p class="text-center table-empty-text" > nothing found. </p>',
-		thead:{
-			className: 'thead-class'
-		},
-		tbody:{
-			className: 'thead-classname',
-			tr: {
-				className: 'tr-classname',
-				td:{
-					className: 'td-classname',
-				},
-				th:{
-					className: 'th-classname',
-				}
-			}
-		},
-		builder: {
-			tag: 'div',
-			className: 'well',
-			elements:[
-				{
-					tag: 'div',
-					className: 'alert alert-success',
-					text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius possimus sed accusantium ad dolor fugit facilis unde, labore odit totam natus beatae error sapiente illum, ducimus aut quasi ea nisi.'
-				},
-				{
-					target: 'table'
-				},
-				{
-					target: 'paging'
-				},
-				{
-					target: 'limit'
-				}
-			]
-		}
-	},
+// var customTable = RendTable.render('table', {
+// 	table: {
+// 		idName: 	'table-one',
+// 		className: 	'table',
+// 		loading: 	'<p class="text-center table-empty-loading" > Loading, please wait ... </p>',
+// 		empty:   	'<p class="text-center table-empty-text" > nothing found. </p>',
+// 		thead:{
+// 			className: 'thead-class'
+// 		},
+// 		tbody:{
+// 			className: 'thead-classname',
+// 			tr: {
+// 				className: 'tr-classname',
+// 				td:{
+// 					className: 'td-classname',
+// 				},
+// 				th:{
+// 					className: 'th-classname',
+// 				}
+// 			}
+// 		},
+// 		builder: {
+// 			tag: 'div',
+// 			className: 'well',
+// 			elements:[
+// 				{
+// 					tag: 'div',
+// 					className: 'alert alert-success',
+// 					text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius possimus sed accusantium ad dolor fugit facilis unde, labore odit totam natus beatae error sapiente illum, ducimus aut quasi ea nisi.'
+// 				},
+// 				{
+// 					tag: 'div',
+// 					className: 'table-top',
+// 					elements:[{
+// 						tag: 'div',
+// 						className: 'table-middle',
+// 						text: 'Title'
+// 					},{
+// 						tag: 'div',
+// 						className: 'table-middle',
+// 						text: 'Search'
+// 					}]
+// 				},
+// 				{
+// 					tag: 'div',
+// 					className: 'table-middle',
+// 					elements:[{
+// 						target: 'table'
+// 					}]
+// 				},
+// 				{
+// 					tag: 'div',
+// 					className: 'table-bottom',
+// 					elements:[{
+// 						tag: 'div',
+// 						className: 'table-paging',
+// 						elements:[{
+// 							target: 'paging'
+// 						}]
+// 					},{
+// 						tag: 'div',
+// 						className: 'table-limit',
+// 						elements:[{
+// 							target: 'limit'
+// 						}]
+// 					}]
+// 				}
+// 			]
+// 		}
+// 	},
+// 	data: [
+// 		{"id":1,"first_name":"Rahal","last_name":"Hastewell","email":"rhastewell0@phpbb.com","gender":"Female","ip_address":"159.251.117.77","country":"Japan","city":"Fukushima-shi","phone":"781-959-5474","color":"Puce","birthday":"2017-08-04"},
+// 		{"id":2,"first_name":"Mathe","last_name":"Vedstra","email":"mvedstra1@nps.gov","gender":"Male","ip_address":"71.66.131.176","country":"Canada","city":"Willowdale","phone":"782-399-2104","color":"Violet","birthday":"2018-01-27"},
+// 		{"id":3,"first_name":"Dorrie","last_name":"Draxford","email":"ddraxford2@liveinternet.ru","gender":"Female","ip_address":"113.76.11.52","country":"France","city":"Rouen","phone":"609-631-2508","color":"Fuscia","birthday":"2017-05-10"},
+// 		{"id":4,"first_name":"Ryley","last_name":"Akeherst","email":"rakeherst3@zimbio.com","gender":"Male","ip_address":"180.3.60.230","country":"France","city":"Paris 06","phone":"688-555-0842","color":"Teal","birthday":"2017-09-19"},
+// 		{"id":5,"first_name":"Layton","last_name":"Filippyev","email":"lfilippyev4@youku.com","gender":"Male","ip_address":"58.169.44.166","country":"Philippines","city":"Siasi","phone":"832-599-0970","color":"Teal","birthday":"2017-10-08"},
+// 		{"id":6,"first_name":"Devan","last_name":"Morrad","email":"dmorrad5@liveinternet.ru","gender":"Female","ip_address":"45.240.201.30","country":"Indonesia","city":"Aikmel","phone":"957-377-3686","color":"Orange","birthday":"2017-05-11"},
+// 		{"id":7,"first_name":"Sara-ann","last_name":"Telford","email":"stelford6@fc2.com","gender":"Female","ip_address":"141.38.53.133","country":"Poland","city":"Lutomiersk","phone":"199-364-9151","color":"Khaki","birthday":"2017-05-30"},
+// 		{"id":8,"first_name":"Tillie","last_name":"Tym","email":"ttym7@squidoo.com","gender":"Female","ip_address":"249.86.80.128","country":"Madagascar","city":"Tsaratanana","phone":"651-300-3985","color":"Puce","birthday":"2017-06-10"},
+// 		{"id":9,"first_name":"Dwain","last_name":"Woods","email":"dwoods8@discovery.com","gender":"Male","ip_address":"236.176.204.55","country":"Philippines","city":"Sagasa","phone":"470-766-5564","color":"Purple","birthday":"2017-02-27"},
+// 		{"id":10,"first_name":"Estel","last_name":"Ridley","email":"eridley9@geocities.com","gender":"Female","ip_address":"231.91.249.103","country":"Uzbekistan","city":"Qo‘qon","phone":"185-856-7260","color":"Pink","birthday":"2017-11-05"},
+// 		{"id":11,"first_name":"Eadie","last_name":"Badrick","email":"ebadricka@rediff.com","gender":"Female","ip_address":"243.31.164.156","country":"Poland","city":"Wodzierady","phone":"194-627-9873","color":"Purple","birthday":"2017-10-26"},
+// 		{"id":12,"first_name":"Anneliese","last_name":"Joderli","email":"ajoderlib@howstuffworks.com","gender":"Female","ip_address":"126.154.21.182","country":"Kuwait","city":"Al Jahrā’","phone":"749-570-8450","color":"Fuscia","birthday":"2017-08-21"},
+// 		{"id":13,"first_name":"Berk","last_name":"Alten","email":"baltenc@abc.net.au","gender":"Male","ip_address":"44.134.65.140","country":"China","city":"Xialaba","phone":"293-790-6188","color":"Maroon","birthday":"2018-02-14"},
+// 		{"id":14,"first_name":"Veradis","last_name":"Jurek","email":"vjurekd@cafepress.com","gender":"Female","ip_address":"235.84.84.207","country":"Indonesia","city":"Sukasirna","phone":"814-712-5659","color":"Puce","birthday":"2017-04-20"},
+// 		{"id":15,"first_name":"Marietta","last_name":"Shoebrook","email":"mshoebrooke@cornell.edu","gender":"Male","ip_address":"233.226.81.127","country":"Azerbaijan","city":"Martakert","phone":"671-314-6816","color":"Fuscia","birthday":"2017-10-07"},
+// 		{"id":16,"first_name":"Justen","last_name":"Shand","email":"jshandf@livejournal.com","gender":"Male","ip_address":"143.85.84.207","country":"Peru","city":"Arma","phone":"962-816-6524","color":"Green","birthday":"2017-04-05"},
+// 		{"id":17,"first_name":"Gabriella","last_name":"Trees","email":"gtreesg@epa.gov","gender":"Female","ip_address":"63.218.170.46","country":"Trinidad and Tobago","city":"Peñal","phone":"194-121-0263","color":"Puce","birthday":"2017-08-19"},
+// 		{"id":18,"first_name":"Tabby","last_name":"Reddan","email":"treddanh@example.com","gender":"Male","ip_address":"175.102.244.159","country":"Norway","city":"Trondheim","phone":"179-207-8524","color":"Crimson","birthday":"2017-07-24"},
+// 		{"id":19,"first_name":"Claresta","last_name":"McIlreavy","email":"cmcilreavyi@weebly.com","gender":"Female","ip_address":"126.242.190.64","country":"Indonesia","city":"Mujur Satu","phone":"648-468-2204","color":"Teal","birthday":"2017-10-28"},
+// 		{"id":20,"first_name":"Red","last_name":"Hutton","email":"rhuttonj@tripod.com","gender":"Male","ip_address":"180.210.179.157","country":"Argentina","city":"Famaillá","phone":"691-731-6793","color":"Pink","birthday":"2017-02-26"},
+// 		{"id":21,"first_name":"Kellyann","last_name":"Girtin","email":"kgirtink@wunderground.com","gender":"Female","ip_address":"147.34.32.96","country":"Philippines","city":"Allen","phone":"372-571-1108","color":"Khaki","birthday":"2017-07-22"},
+// 		{"id":22,"first_name":"Sabina","last_name":"Cancott","email":"scancottl@gravatar.com","gender":"Female","ip_address":"110.254.220.131","country":"Indonesia","city":"Liliba","phone":"233-885-5699","color":"Fuscia","birthday":"2017-03-13"},
+// 		{"id":23,"first_name":"Kennedy","last_name":"Ruddiman","email":"kruddimanm@icio.us","gender":"Male","ip_address":"15.141.209.136","country":"Colombia","city":"Villanueva","phone":"645-548-3573","color":"Orange","birthday":"2018-02-11"},
+// 		{"id":24,"first_name":"Suki","last_name":"Dettmar","email":"sdettmarn@jiathis.com","gender":"Female","ip_address":"122.139.8.167","country":"Argentina","city":"Azul","phone":"697-232-7152","color":"Teal","birthday":"2017-05-21"},
+// 		{"id":25,"first_name":"Lon","last_name":"L'Episcopio","email":"llepiscopioo@disqus.com","gender":"Male","ip_address":"74.31.53.57","country":"Poland","city":"Siedleczka","phone":"542-600-2327","color":"Maroon","birthday":"2017-06-15"},
+// 		{"id":26,"first_name":"Ewan","last_name":"Curston","email":"ecurstonp@simplemachines.org","gender":"Male","ip_address":"36.97.123.250","country":"Poland","city":"Radzanów","phone":"406-773-5805","color":"Fuscia","birthday":"2017-08-27"},
+// 		{"id":27,"first_name":"Borg","last_name":"Cottis","email":"bcottisq@cloudflare.com","gender":"Male","ip_address":"49.228.135.231","country":"China","city":"Caotan","phone":"309-176-8608","color":"Green","birthday":"2017-03-05"}
+// 	],
+// 	// data : './data_one.json',
+// 	// mapResponse: function(response){
+// 	// 	return response.data;
+// 	// },
+// 	// mapData: function(item){
+// 	// 	return item;
+// 	// },
+
+// 	limit: 10,
+// 	paging:{
+// 		className: 'pagination',
+// 		li:{
+// 			className: 'page-item',
+// 			classNameFirst: 'page-item',
+// 			classNameLast: 'page-item',
+// 			classNameNext: 'page-item',
+// 			classNamePrev: 'page-item',
+// 			classNameActive: 'active',
+// 			a:{
+// 				className: 'page-link',
+// 				classNameActive: 'active'
+// 			}
+// 		}
+// 	},
+
+
+// 	searchFields: [
+// 		'first_name',
+// 		'last_name'
+// 	],
+
+// 	ordering: true,
+// 	order: [{key:'first_name',direction:'asc'},'last_name:desc'],
+
+// 	columns: [
+// 		'COUNTER:#',
+// 		{
+// 			key: 'first_name',
+// 			label: 'First Name',
+// 			render: function(output, column, raw){
+// 			return output + " -- " + raw.gender;
+// 		  }
+// 		},
+// 		{key: 'last_name',label: 'Last Name'},
+// 		{key: 'email',label: 'Email Address', order: false},
+// 		{
+// 			key: 'birthday',
+// 			label: 'Date',
+// 			order: true,
+// 			display: {
+// 				type: 'datetime',
+// 				format: 'mmm d, yyyy'
+// 			}
+// 		},{
+// 			key: 'price',
+// 			label: 'Price',
+// 			prefix: '$',
+// 			suffix: 'ریال',
+// 			className: 'text-success',
+// 			display: {
+// 				type: 	'money',
+// 				decimals: 2,
+// 				decimal_sep: '.',
+// 				thousands_sep: ','
+// 			}
+// 		},{
+// 			key: 	'id',
+// 			label: 	' action ',
+// 			className: 'td-action text-center',
+// 			order: false,
+// 			elements: [
+// 				{
+// 					tag: 'div',
+// 					className: 'btn-group btn-group-sm',
+// 					elements: [
+// 						{
+// 							tag: 'button',
+// 							className: 'btn btn-default btn-xs',
+// 							action: 'onCallClick',
+// 							elements:[
+// 								{
+// 									tag: 'i',
+// 									className: 'lnr lnr-plus-circle',
+// 									text: 'click'
+// 								},
+// 							]
+// 						},
+// 						{
+// 							tag: 'button',
+// 							className: 'btn btn-default btn-xs',
+// 							action: {
+// 								trigger: 'mouseover',
+// 								call: 'onClick'
+// 							},
+// 							show: ( data ) => {
+// 								return ( data.gender === 'Female' ) ? true : false;
+// 							},
+// 							elements:[
+// 								{
+// 									tag: 'i',
+// 									className: 'lnr lnr-plus-circle',
+// 									text: 'Show if Female'
+// 								}
+// 							]
+// 						}
+// 					]
+// 				}
+// 			]
+// 		}
+// 	]
+// });
+// if( customTable ){
+// 	document.getElementById('refresh')
+// 	.addEventListener('click',function(){
+// 		customTable.refresh();
+// 	})
+// 	var searchInput = document.getElementsByName('search-query')[0];
+// 	searchInput.addEventListener('keyup',function(e){
+// 		customTable.search( e.target.value );
+// 	});
+// 	customTable.action('onCallClick', function(){
+// 		alert('onCallClick');
+// 	});
+// 	customTable.action('onClick', function(){
+// 		alert('mouseover');
+// 	});
+// }
+
+
+RendTable.render('table-two', {
 	data: [
 		{"id":1,"first_name":"Rahal","last_name":"Hastewell","email":"rhastewell0@phpbb.com","gender":"Female","ip_address":"159.251.117.77","country":"Japan","city":"Fukushima-shi","phone":"781-959-5474","color":"Puce","birthday":"2017-08-04"},
 		{"id":2,"first_name":"Mathe","last_name":"Vedstra","email":"mvedstra1@nps.gov","gender":"Male","ip_address":"71.66.131.176","country":"Canada","city":"Willowdale","phone":"782-399-2104","color":"Violet","birthday":"2018-01-27"},
-		{"id":3,"first_name":"Dorrie","last_name":"Draxford","email":"ddraxford2@liveinternet.ru","gender":"Female","ip_address":"113.76.11.52","country":"France","city":"Rouen","phone":"609-631-2508","color":"Fuscia","birthday":"2017-05-10"},
-		{"id":4,"first_name":"Ryley","last_name":"Akeherst","email":"rakeherst3@zimbio.com","gender":"Male","ip_address":"180.3.60.230","country":"France","city":"Paris 06","phone":"688-555-0842","color":"Teal","birthday":"2017-09-19"},
-		{"id":5,"first_name":"Layton","last_name":"Filippyev","email":"lfilippyev4@youku.com","gender":"Male","ip_address":"58.169.44.166","country":"Philippines","city":"Siasi","phone":"832-599-0970","color":"Teal","birthday":"2017-10-08"},
-		{"id":6,"first_name":"Devan","last_name":"Morrad","email":"dmorrad5@liveinternet.ru","gender":"Female","ip_address":"45.240.201.30","country":"Indonesia","city":"Aikmel","phone":"957-377-3686","color":"Orange","birthday":"2017-05-11"},
-		{"id":7,"first_name":"Sara-ann","last_name":"Telford","email":"stelford6@fc2.com","gender":"Female","ip_address":"141.38.53.133","country":"Poland","city":"Lutomiersk","phone":"199-364-9151","color":"Khaki","birthday":"2017-05-30"},
-		{"id":8,"first_name":"Tillie","last_name":"Tym","email":"ttym7@squidoo.com","gender":"Female","ip_address":"249.86.80.128","country":"Madagascar","city":"Tsaratanana","phone":"651-300-3985","color":"Puce","birthday":"2017-06-10"},
-		{"id":9,"first_name":"Dwain","last_name":"Woods","email":"dwoods8@discovery.com","gender":"Male","ip_address":"236.176.204.55","country":"Philippines","city":"Sagasa","phone":"470-766-5564","color":"Purple","birthday":"2017-02-27"},
-		{"id":10,"first_name":"Estel","last_name":"Ridley","email":"eridley9@geocities.com","gender":"Female","ip_address":"231.91.249.103","country":"Uzbekistan","city":"Qo‘qon","phone":"185-856-7260","color":"Pink","birthday":"2017-11-05"},
-		{"id":11,"first_name":"Eadie","last_name":"Badrick","email":"ebadricka@rediff.com","gender":"Female","ip_address":"243.31.164.156","country":"Poland","city":"Wodzierady","phone":"194-627-9873","color":"Purple","birthday":"2017-10-26"},
-		{"id":12,"first_name":"Anneliese","last_name":"Joderli","email":"ajoderlib@howstuffworks.com","gender":"Female","ip_address":"126.154.21.182","country":"Kuwait","city":"Al Jahrā’","phone":"749-570-8450","color":"Fuscia","birthday":"2017-08-21"},
-		{"id":13,"first_name":"Berk","last_name":"Alten","email":"baltenc@abc.net.au","gender":"Male","ip_address":"44.134.65.140","country":"China","city":"Xialaba","phone":"293-790-6188","color":"Maroon","birthday":"2018-02-14"},
-		{"id":14,"first_name":"Veradis","last_name":"Jurek","email":"vjurekd@cafepress.com","gender":"Female","ip_address":"235.84.84.207","country":"Indonesia","city":"Sukasirna","phone":"814-712-5659","color":"Puce","birthday":"2017-04-20"},
-		{"id":15,"first_name":"Marietta","last_name":"Shoebrook","email":"mshoebrooke@cornell.edu","gender":"Male","ip_address":"233.226.81.127","country":"Azerbaijan","city":"Martakert","phone":"671-314-6816","color":"Fuscia","birthday":"2017-10-07"},
-		{"id":16,"first_name":"Justen","last_name":"Shand","email":"jshandf@livejournal.com","gender":"Male","ip_address":"143.85.84.207","country":"Peru","city":"Arma","phone":"962-816-6524","color":"Green","birthday":"2017-04-05"},
-		{"id":17,"first_name":"Gabriella","last_name":"Trees","email":"gtreesg@epa.gov","gender":"Female","ip_address":"63.218.170.46","country":"Trinidad and Tobago","city":"Peñal","phone":"194-121-0263","color":"Puce","birthday":"2017-08-19"},
-		{"id":18,"first_name":"Tabby","last_name":"Reddan","email":"treddanh@example.com","gender":"Male","ip_address":"175.102.244.159","country":"Norway","city":"Trondheim","phone":"179-207-8524","color":"Crimson","birthday":"2017-07-24"},
-		{"id":19,"first_name":"Claresta","last_name":"McIlreavy","email":"cmcilreavyi@weebly.com","gender":"Female","ip_address":"126.242.190.64","country":"Indonesia","city":"Mujur Satu","phone":"648-468-2204","color":"Teal","birthday":"2017-10-28"},
-		{"id":20,"first_name":"Red","last_name":"Hutton","email":"rhuttonj@tripod.com","gender":"Male","ip_address":"180.210.179.157","country":"Argentina","city":"Famaillá","phone":"691-731-6793","color":"Pink","birthday":"2017-02-26"},
-		{"id":21,"first_name":"Kellyann","last_name":"Girtin","email":"kgirtink@wunderground.com","gender":"Female","ip_address":"147.34.32.96","country":"Philippines","city":"Allen","phone":"372-571-1108","color":"Khaki","birthday":"2017-07-22"},
-		{"id":22,"first_name":"Sabina","last_name":"Cancott","email":"scancottl@gravatar.com","gender":"Female","ip_address":"110.254.220.131","country":"Indonesia","city":"Liliba","phone":"233-885-5699","color":"Fuscia","birthday":"2017-03-13"},
-		{"id":23,"first_name":"Kennedy","last_name":"Ruddiman","email":"kruddimanm@icio.us","gender":"Male","ip_address":"15.141.209.136","country":"Colombia","city":"Villanueva","phone":"645-548-3573","color":"Orange","birthday":"2018-02-11"},
-		{"id":24,"first_name":"Suki","last_name":"Dettmar","email":"sdettmarn@jiathis.com","gender":"Female","ip_address":"122.139.8.167","country":"Argentina","city":"Azul","phone":"697-232-7152","color":"Teal","birthday":"2017-05-21"},
-		{"id":25,"first_name":"Lon","last_name":"L'Episcopio","email":"llepiscopioo@disqus.com","gender":"Male","ip_address":"74.31.53.57","country":"Poland","city":"Siedleczka","phone":"542-600-2327","color":"Maroon","birthday":"2017-06-15"},
-		{"id":26,"first_name":"Ewan","last_name":"Curston","email":"ecurstonp@simplemachines.org","gender":"Male","ip_address":"36.97.123.250","country":"Poland","city":"Radzanów","phone":"406-773-5805","color":"Fuscia","birthday":"2017-08-27"},
-		{"id":27,"first_name":"Borg","last_name":"Cottis","email":"bcottisq@cloudflare.com","gender":"Male","ip_address":"49.228.135.231","country":"China","city":"Caotan","phone":"309-176-8608","color":"Green","birthday":"2017-03-05"}
-	],
-	// data : './data_one.json',
-	// mapResponse: function(response){
-	// 	return response.data;
-	// },
-	// mapData: function(item){
-	// 	return item;
-	// },
-
-	limit: 10,
-	paging:{
-		className: 'pagination',
-		li:{
-			className: 'page-item',
-			classNameFirst: 'page-item',
-			classNameLast: 'page-item',
-			classNameNext: 'page-item',
-			classNamePrev: 'page-item',
-			classNameActive: 'active',
-			a:{
-				className: 'page-link',
-				classNameActive: 'active'
-			}
-		}
-	},
-
-
-	searchFields: [
-		'first_name',
-		'last_name'
-	],
-
-	columns: [
-		'COUNTER:#',
-		{
-			key: 'first_name',
-			label: 'First Name',
-			render: function(output, column, raw){
-			return output + " -- " + raw.gender;
-		  }
-		},
-		{key: 'last_name',label: 'Last Name'},
-		{key: 'email',label: 'Email Address'},
-		{
-			key: 'birthday',
-			label: 'Date',
-			display: {
-				type: 'datetime',
-				format: 'mmm d, yyyy'
-			}
-		},{
-			key: 'price',
-			label: 'Price',
-			prefix: '$',
-			suffix: 'ریال',
-			className: 'text-success',
-			display: {
-				type: 	'money',
-				decimals: 2,
-				decimal_sep: '.',
-				thousands_sep: ','
-			}
-		},{
-			key: 	'id',
-			label: 	' action ',
-			className: 'td-action text-center',
-			elements: [
-				{
-					tag: 'div',
-					className: 'btn-group btn-group-sm',
-					elements: [
-						{
-							tag: 'button',
-							className: 'btn btn-default btn-xs',
-							action: 'onCallClick',
-							elements:[
-								{
-									tag: 'i',
-									className: 'lnr lnr-plus-circle',
-									text: 'click'
-								},
-							]
-						},
-						{
-							tag: 'button',
-							className: 'btn btn-default btn-xs',
-							action: {
-								trigger: 'mouseover',
-								call: 'onClick'
-							},
-							show: ( data ) => {
-								return ( data.gender === 'Female' ) ? true : false;
-							},
-							elements:[
-								{
-									tag: 'i',
-									className: 'lnr lnr-plus-circle',
-									text: 'Show if Female'
-								}
-							]
-						}
-					]
-				}
-			]
-		}
+		{"id":3,"first_name":"Dorrie","last_name":"Draxford","email":"ddraxford2@liveinternet.ru","gender":"Female","ip_address":"113.76.11.52","country":"France","city":"Rouen","phone":"609-631-2508","color":"Fuscia","birthday":"2017-05-10"}
 	]
 });
-
-
-document.getElementById('refresh')
-.addEventListener('click',function(){
-	customTable.refresh();
-})
-
-
-var searchInput = document.getElementsByName('search-query')[0];
-searchInput.addEventListener('keyup',function(e){
-	customTable.search( e.target.value );
-});
-
-customTable.action('onCallClick', function(){
-	alert('onCallClick');
-});
-
-customTable.action('onClick', function(){
-	alert('mouseover');
-});
-
-
-
 </script>
 </body>
 </html>
